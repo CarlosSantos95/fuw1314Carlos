@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>T&iacute;tulo del trabajo</title>
+</head>
+<body>
+<div style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+  <img src='./files/logo.png'/>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+    <li><b>M&oacute;dulo:</b> <i>Fuw</i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i>FreeNAS</i></li>
+    <li><b>Componentes del grupo:</b> <i>Carlos Santos</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2013/2014</i></li>
+    <li><b>Fecha de entrega:</b> <i>28 de Abril de 2014</i></li>
+  </ul>
+  </div>
+</div>
+<div style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+</div>
+<h1><a id='bloque1'>FreeNAS</a></h1>
+<p>Como primer paso,creamos una maquina virtual y la ponemos en modo puente, insertamos los siguientes volumenes en y seguidamente 
+instalamos el FreeNAS.</p>
+<img src='./files/volumenes.png'/>
+<p>Una vez instalado el FreeNAS,configuramos todo lo que tiene que ver con la red.Ip,dns,gateway,etc.</p>
+<img src='./files/ifconfigNAS.png'/>
+<p>Una vez configurado.Accedemos desde otra maquina virtual de la red y entramos en el servidor NAS poniendo la ip en el navegador.
+Vamos a "Storage -> Volumes -> UFS Volume Manager".
+Si lo necesitamos, crear directorio /mnt/volumen1, para montar el volumen.</p>
+<img src='./files/volumen1.png'/><br>
+<img src='./files/raidmontado.png'/>
+<p>Vamos a "Servicios" -> "Control de Servicios - > CIFS -> lo activamos.
+Vamos al servidor FreeNAS y ejecutamos los siguientes comandos:<br>
+    df -hT (Para comprobar que está montado el volumen1)<br>
+    mkdir /mnt/volumen1/public<br>
+    chmod 777 /mnt/volumen1/public (Creamos una carpeta de uso público lectura/escritura).<br>
+</p>
+<img src='./files/recursocompartido.png'/>
+
+</body>
+</html>
