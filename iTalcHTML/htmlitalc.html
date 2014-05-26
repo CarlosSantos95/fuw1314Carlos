@@ -1,0 +1,80 @@
+<html>
+<head>
+	<title>T&iacute;tulo del trabajo</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+<body>
+<div style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+  <img src='./files/logo.png'/>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+    <li><b>M&oacute;dulo:</b> <i>Fundamentos de hardware</i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i>Control remoto</i></li>
+    <li><b>Alumno:</b> <i>Carlos Santos Carballo</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2013/2014</i></li>
+    <li><b>Fecha de entrega:</b> <i>26 de Mayo de 2014</i></li>
+  </ul>
+  </div>
+</div>
+<div style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+<a href='#bloque1'>iTalc Master</a> | <a href='#bloque2'>iTalc Cliente Windows</a> | <a href='#final'>iTalc Cliente Linux</a>| <a href='#final2'>Comprobación</a>
+</div>
+<h1><a id='bloque1'><u>iTalc Master</u></a></h1>
+<p>Instalamos iTalc Master en un equipo GNU/Linux, en este caso Debian 7.
+En GNU/Linux la instalación de italc-master crea los siguientes ficheros:
+	/etc/italc/keys/private/teacher/key
+	/etc/italc/keys/public/teacher/key.<br>
+En este caso,al instalar el programa,no teniamos las claves públicas ni privadas creadas,por lo que realizamos este comando para generarlas.<br>
+			-createkeypair</p><br>
+			 <img border="2px" src='./files/creacionkeys.png'/><br><p>
+Creamos el grupo italc,creamos el usuario "maul" y lo añadimos a nuestro grupo:</p><br>
+		  <img border="2px" src='./files/crearusuariosygrupos.png'/><br>
+		<p>
+		Damos permisos al grupo italc, para tener acceso a las claves de italc:
+cd /etc/italc; chgrp -R italc keys</p><br>
+		<img border="2px" src='./files/permisos.png'/><br>
+		<p>
+Verificar que el servicio está iniciado (ps -ef |grep ica). Si el programa "ica" no está iniciado, lo podemos iniciar manualmente. Para ello abrimos un terminal y escribimos: /usr/bin/ica &
+</p><br><img border="2px" src='./files/iniciomanual.png'/><br>
+<img border="2px" src='./files/servivioiniciadocomprobar.png'/><br>
+<p>Para que el servicio ica se inicie automáticamente al iniciar sesión con el usuario "maul":<br>
+Editar fichero /home/maul/.profile
+Añadir "/usr/bin/ica &" al final del fichero.</p><br>
+	<img border="2px" src='./files/nanomaul.png'/><br>
+
+
+
+
+<h1><a id='bloque2'><u>iTalc Cliente Windows</u></a></h1>
+<p>Primero tenemos que asegurarnos de que nuestro usuario de Windows tiene una clave NO vacía.
+A continuación tenemos que instalar una versión del iTalc en Windows similar a la versión Master.<br></p>
+<img border="2px" src='./files/version.png'/><br><p>
+Una vez comprobado lo anterior,procedemos a instalarlo.La instalación se realiza sin ningún problema.<br>
+ Creamos las claves, buscamos el fichero "key" dentro de C:\Archivos de programas\italc\key\public\teacher.Lo sustituimos 
+ por el que nos da el master.Por último reiniciamos el programa</p>
+ 
+ 
+<h1><a id='final'><u>iTalc Cliente Linux</u></a></h1>
+<p>Instalamos en GNU/Linux Debian (apt-get install italc-client)
+Copiamos el fichero key del master directamente en /etc/italc/keys/public/teacher. 
+Creamos el grupo italc, y añadimos nuestro usuario al grupo:</p>
+<p>
+addgroup italc
+usermod usuario --groups italc<br></p><p>
+Damos permisos al grupo italc, para tener acceso a las claves de italc:<br>
+cd /etc/italc; chgrp -R italc keys<br></p>
+<p>Verificamos que el servicio está iniciado (ps -ef |grep ica). 
+Si el programa ica no está iniciado, iniciarlo manualmente.<br>Abrimos terminal y escribimos: /usr/bin/ica &
+Para que el servicio ica se inicie automáticamente al iniciar sesión con el usuario "maul"<br>
+Editamos fichero /home/maul/.profile<br>
+Añadimos "/usr/bin/ica &" al final del fichero.</p><br>
+	 <img border="2px" src='./files/.profile.png'/><br>
+	 <h1><a id='final2'><u>Comprobación</u></a></h1>
+	 <p>Para terminar esta práctica,tan solo necesitamos ir al <br>iTalc Master, iniciar sesión,realizar las configuraciones necesarias para poder establecer la conexión entre diferentes máquinas y comprobar</p>
+<img border="2px" src='./files/comprobarmaster.png'/><br><br>
+<img border="2px" src='./files/pruebamasterwindows.png'/><br>
+<p>En windows,debido a algún problema que desconozco,se ve en negro,pero funciona correctamente.</p>
+</body>
+</html>
